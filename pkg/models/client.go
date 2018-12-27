@@ -28,6 +28,9 @@ type Client interface {
 	CreateEphemeralInOrder(path string, data []byte) (<-chan struct{}, string, error)
 }
 
+/**
+新建一个 zk 客户端
+*/
 func NewClient(coordinator string, addrlist string, auth string, timeout time.Duration) (Client, error) {
 	switch coordinator {
 	case "zk", "zookeeper":
